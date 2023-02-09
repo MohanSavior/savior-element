@@ -110,7 +110,7 @@ final class Savior_Elementor_Addon {
         }
 
         add_action( 'elementor/init', [ $this, 'init_category' ] );
-        add_action( 'elementor/widgets/widgets_registered', [ $this, 'init_widgets' ] );
+        add_action( 'elementor/widgets/register', [ $this, 'init_widgets' ] );
     }
 
     /**
@@ -130,7 +130,7 @@ final class Savior_Elementor_Addon {
     */
     public function init_category() {
         Elementor\Plugin::instance()->elements_manager->add_category(
-            'wpse-for-elementor',
+            'sea-for-elementor',
             [
                 'title' => 'Savior Elements'
             ],
