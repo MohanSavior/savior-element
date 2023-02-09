@@ -1,12 +1,12 @@
 <?php
 /**
- * Plugin Name: Savior Elements
+ * Plugin Name: Savior Elementor Addon
  * Plugin URI: https://savior.im
  * Description: A custom elementor widget
  * Version: 1.0.0
  * Author: SaviorTeam
  * Author URI: https://savior.im
- * Text Domain: savior-elements
+ * Text Domain: savior-elementor-addon-addon
  */
 
  if( ! defined( 'ABSPATH' ) ) exit();
@@ -15,7 +15,7 @@
  * Elementor Extension main CLass
  * @since 1.0.0
  */
-final class Savior_Elements {
+final class Savior_Elementor_Addon {
 
     // Plugin version
     const VERSION = '1.0.0';
@@ -57,8 +57,8 @@ final class Savior_Elements {
     * @since 1.0.0
     */
     public function define_constants() {
-        define( 'MYEW_PLUGIN_URL', trailingslashit( plugins_url( '/', __FILE__ ) ) );
-        define( 'MYEW_PLUGIN_PATH', trailingslashit( plugin_dir_path( __FILE__ ) ) );
+        define( 'SEA_PLUGIN_URL', trailingslashit( plugins_url( '/', __FILE__ ) ) );
+        define( 'SEA_PLUGIN_PATH', trailingslashit( plugin_dir_path( __FILE__ ) ) );
     }
 
     /**
@@ -66,18 +66,18 @@ final class Savior_Elements {
     * @since 1.0.0
     */
     public function scripts_styles() {
-        // wp_register_style( 'myew-owl-carousel', MYEW_PLUGIN_URL . 'assets/vendor/owl-carousel/css/owl.carousel.min.css', [], rand(), 'all' );
-        // wp_register_style( 'myew-owl-carousel-theme', MYEW_PLUGIN_URL . 'assets/vendor/owl-carousel/css/owl.theme.default.min.css', [], rand(), 'all' );
-        // wp_register_script( 'myew-owl-carousel', MYEW_PLUGIN_URL . 'assets/vendor/owl-carousel/js/owl.carousel.min.js', [ 'jquery' ], rand(), true );
+        // wp_register_style( 'myew-owl-carousel', SEA_PLUGIN_URL . 'assets/vendor/owl-carousel/css/owl.carousel.min.css', [], rand(), 'all' );
+        // wp_register_style( 'myew-owl-carousel-theme', SEA_PLUGIN_URL . 'assets/vendor/owl-carousel/css/owl.theme.default.min.css', [], rand(), 'all' );
+        // wp_register_script( 'myew-owl-carousel', SEA_PLUGIN_URL . 'assets/vendor/owl-carousel/js/owl.carousel.min.js', [ 'jquery' ], rand(), true );
 
-        wp_register_style( 'savior-elements-public', MYEW_PLUGIN_URL . 'assets/dist/css/savior-elements-public.min.css', [], rand(), 'all' );
-        wp_register_script( 'savior-elements-public', MYEW_PLUGIN_URL . 'assets/dist/js/savior-elements-public.min.js', [ 'jquery' ], rand(), true );
+        wp_register_style( 'savior-elementor-addon-public', SEA_PLUGIN_URL . 'assets/dist/css/savior-elementor-addon-public.min.css', [], rand(), 'all' );
+        wp_register_script( 'savior-elementor-addon-public', SEA_PLUGIN_URL . 'assets/dist/js/savior-elementor-addon-public.min.js', [ 'jquery' ], rand(), true );
 
         // wp_enqueue_style( 'myew-owl-carousel' );
         // wp_enqueue_style( 'myew-owl-carousel-theme' );
         // wp_enqueue_script( 'myew-owl-carousel' );
-        wp_enqueue_style( 'savior-elements-public' );
-        wp_enqueue_script( 'savior-elements-public' );
+        wp_enqueue_style( 'savior-elementor-addon-public' );
+        wp_enqueue_script( 'savior-elementor-addon-public' );
     }
 
     /**
@@ -85,7 +85,7 @@ final class Savior_Elements {
     * @since 1.0.0
     */
     public function i18n() {
-       load_plugin_textdomain( 'savior-elements', false, dirname( plugin_basename( __FILE__ ) ) . '/languages' );
+       load_plugin_textdomain( 'savior-elementor-addon', false, dirname( plugin_basename( __FILE__ ) ) . '/languages' );
     }
 
     /**
@@ -110,7 +110,7 @@ final class Savior_Elements {
         }
 
         add_action( 'elementor/init', [ $this, 'init_category' ] );
-        add_action( 'elementor/widgets/widgets_registered', [ $this, 'init_widgets' ] );
+        add_action( 'elementor/widgets/register', [ $this, 'init_widgets' ] );
     }
 
     /**
@@ -118,10 +118,10 @@ final class Savior_Elements {
     * @since 1.0.0
     */
     public function init_widgets() {
-        require_once MYEW_PLUGIN_PATH . 'include/widgets/class-preview-card-widget.php';
-        // require_once MYEW_PLUGIN_PATH . '/widgets/preview-card.php';
-        // require_once MYEW_PLUGIN_PATH . '/widgets/pricing-table.php';
-        // require_once MYEW_PLUGIN_PATH . '/widgets/logo-carousel.php';
+        require_once SEA_PLUGIN_PATH . 'include/widgets/class-preview-card-widget.php';
+        // require_once SEA_PLUGIN_PATH . '/widgets/preview-card.php';
+        // require_once SEA_PLUGIN_PATH . '/widgets/pricing-table.php';
+        // require_once SEA_PLUGIN_PATH . '/widgets/logo-carousel.php';
     }
 
     /**
@@ -130,7 +130,7 @@ final class Savior_Elements {
     */
     public function init_category() {
         Elementor\Plugin::instance()->elements_manager->add_category(
-            'wpse-for-elementor',
+            'sea-for-elementor',
             [
                 'title' => 'Savior Elements'
             ],
@@ -146,9 +146,9 @@ final class Savior_Elements {
     public function admin_notice_missing_main_plugin() {
         if( isset( $_GET[ 'activate' ] ) ) unset( $_GET[ 'activate' ] );
         $message = sprintf(
-            esc_html__( '"%1$s" requires "%2$s" to be installed and activated', 'savior-elements' ),
-            '<strong>'.esc_html__( 'My Elementor Widget', 'savior-elements' ).'</strong>',
-            '<strong>'.esc_html__( 'Elementor', 'savior-elements' ).'</strong>'
+            esc_html__( '"%1$s" requires "%2$s" to be installed and activated', 'savior-elementor-addon' ),
+            '<strong>'.esc_html__( 'My Elementor Widget', 'savior-elementor-addon' ).'</strong>',
+            '<strong>'.esc_html__( 'Elementor', 'savior-elementor-addon' ).'</strong>'
         );
 
         printf( '<div class="notice notice-warning is-dimissible"><p>%1$s</p></div>', $message );
@@ -162,9 +162,9 @@ final class Savior_Elements {
     public function admin_notice_minimum_elementor_version() {
         if( isset( $_GET[ 'activate' ] ) ) unset( $_GET[ 'activate' ] );
         $message = sprintf(
-            esc_html__( '"%1$s" requires "%2$s" version %3$s or greater', 'savior-elements' ),
-            '<strong>'.esc_html__( 'Savior Elements', 'savior-elements' ).'</strong>',
-            '<strong>'.esc_html__( 'Elementor', 'savior-elements' ).'</strong>',
+            esc_html__( '"%1$s" requires "%2$s" version %3$s or greater', 'savior-elementor-addon' ),
+            '<strong>'.esc_html__( 'Savior Elements', 'savior-elementor-addon' ).'</strong>',
+            '<strong>'.esc_html__( 'Elementor', 'savior-elementor-addon' ).'</strong>',
             self::MINIMUM_ELEMENTOR_VERSION
         );
 
@@ -179,9 +179,9 @@ final class Savior_Elements {
     public function admin_notice_minimum_php_version() {
         if( isset( $_GET[ 'activate' ] ) ) unset( $_GET[ 'activate' ] );
         $message = sprintf(
-            esc_html__( '"%1$s" requires "%2$s" version %3$s or greater', 'savior-elements' ),
-            '<strong>'.esc_html__( 'My Elementor Widget', 'savior-elements' ).'</strong>',
-            '<strong>'.esc_html__( 'PHP', 'savior-elements' ).'</strong>',
+            esc_html__( '"%1$s" requires "%2$s" version %3$s or greater', 'savior-elementor-addon' ),
+            '<strong>'.esc_html__( 'My Elementor Widget', 'savior-elementor-addon' ).'</strong>',
+            '<strong>'.esc_html__( 'PHP', 'savior-elementor-addon' ).'</strong>',
             self::MINIMUM_PHP_VERSION
         );
 
@@ -190,4 +190,4 @@ final class Savior_Elements {
 
 }
 
-Savior_Elements::instance();
+Savior_Elementor_Addon::instance();

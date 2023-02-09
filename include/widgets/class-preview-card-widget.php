@@ -1,10 +1,10 @@
 <?php
 namespace Elementor;
 
-class WPSE_Preview_Card_Widget extends Widget_Base {
+class SEA_Preview_Card_Widget extends Widget_Base {
 
     public function get_name() {
-        return  'wpse-preview-card-widget-id';
+        return  'sea-preview-card-widget-id';
     }
 
     public function get_title() {
@@ -13,7 +13,7 @@ class WPSE_Preview_Card_Widget extends Widget_Base {
 
     public function get_script_depends() {
         return [
-            'wpse-script'
+            'sea-script'
         ];
     }
 
@@ -22,7 +22,7 @@ class WPSE_Preview_Card_Widget extends Widget_Base {
     }
 
     public function get_categories() {
-        return [ 'wpse-for-elementor' ];
+        return [ 'sea-for-elementor' ];
     }
 
     public function _register_controls() {
@@ -39,7 +39,7 @@ class WPSE_Preview_Card_Widget extends Widget_Base {
             $this->add_control(
                 'image',
                 [
-                    'label' => __( 'Choose Image', 'savior-elements' ),
+                    'label' => __( 'Choose Image', 'savior-elementor-addon' ),
                     'type' => \Elementor\Controls_Manager::MEDIA,
                     'default' => [
                         'url' => \Elementor\Utils::get_placeholder_image_src(),
@@ -51,7 +51,7 @@ class WPSE_Preview_Card_Widget extends Widget_Base {
             $this->add_control(
                 'show_image_link',
                 [
-                    'label' => __( 'Show Image Link', 'savior-elements' ),
+                    'label' => __( 'Show Image Link', 'savior-elementor-addon' ),
                     'type' => \Elementor\Controls_Manager::SWITCHER,
                     'label_on' => __( 'Show', 'your-plugin' ),
                     'label_off' => __( 'Hide', 'your-plugin' ),
@@ -64,9 +64,9 @@ class WPSE_Preview_Card_Widget extends Widget_Base {
             $this->add_control(
                 'image_link',
                 [
-                    'label' => __( 'Image Link', 'savior-elements' ),
+                    'label' => __( 'Image Link', 'savior-elementor-addon' ),
                     'type' => \Elementor\Controls_Manager::URL,
-                    'placeholder' => __( 'https://your-link.com', 'savior-elements' ),
+                    'placeholder' => __( 'https://your-link.com', 'savior-elementor-addon' ),
                     'show_external' => true,
                     'default' => [
                         'url' => '',
@@ -94,11 +94,11 @@ class WPSE_Preview_Card_Widget extends Widget_Base {
             $this->add_control(
                 'card_title',
                 [
-                    'label' => __( 'Title', 'savior-elements' ),
+                    'label' => __( 'Title', 'savior-elementor-addon' ),
                     'type' => \Elementor\Controls_Manager::TEXT,
-                    'default' => __( 'Default title', 'savior-elements' ),
+                    'default' => __( 'Default title', 'savior-elementor-addon' ),
                     'label_block' => true,
-                    'placeholder' => __( 'Type your title here', 'savior-elements' ),
+                    'placeholder' => __( 'Type your title here', 'savior-elementor-addon' ),
                 ]
             );
 
@@ -106,10 +106,10 @@ class WPSE_Preview_Card_Widget extends Widget_Base {
             $this->add_control(
                 'show_divider',
                 [
-                    'label'        => __( 'Show Divider', 'savior-elements' ),
+                    'label'        => __( 'Show Divider', 'savior-elementor-addon' ),
                     'type'         => \Elementor\Controls_Manager::SWITCHER,
-                    'label_on'     => __( 'Show', 'savior-elements' ),
-                    'label_off'    => __( 'Hide', 'savior-elements' ),
+                    'label_on'     => __( 'Show', 'savior-elementor-addon' ),
+                    'label_off'    => __( 'Hide', 'savior-elementor-addon' ),
                     'return_value' => 'yes',
                     'default'      => 'yes',
                 ]
@@ -119,10 +119,10 @@ class WPSE_Preview_Card_Widget extends Widget_Base {
             $this->add_control(
                 'item_description',
                 [
-                    'label' => __( 'Description', 'savior-elements' ),
+                    'label' => __( 'Description', 'savior-elementor-addon' ),
                     'type' => \Elementor\Controls_Manager::WYSIWYG,
-                    'default' => __( 'Default description', 'savior-elements' ),
-                    'placeholder' => __( 'Type your description here', 'savior-elements' ),
+                    'default' => __( 'Default description', 'savior-elementor-addon' ),
+                    'placeholder' => __( 'Type your description here', 'savior-elementor-addon' ),
                 ]
             );
 
@@ -141,7 +141,7 @@ class WPSE_Preview_Card_Widget extends Widget_Base {
             $this->add_control(
                 'show_top_badge',
                 [
-                    'label' => __( 'Show Top Badge', 'savior-elements' ),
+                    'label' => __( 'Show Top Badge', 'savior-elementor-addon' ),
                     'type' => \Elementor\Controls_Manager::SWITCHER,
                     'label_on' => __( 'Show', 'your-plugin' ),
                     'label_off' => __( 'Hide', 'your-plugin' ),
@@ -154,10 +154,10 @@ class WPSE_Preview_Card_Widget extends Widget_Base {
             $this->add_control(
                 'top_badge_text',
                 [
-                    'label' => __( 'Top Badge Text', 'savior-elements' ),
+                    'label' => __( 'Top Badge Text', 'savior-elementor-addon' ),
                     'type' => \Elementor\Controls_Manager::TEXT,
-                    'default' => __( 'On Sale!', 'savior-elements' ),
-                    'placeholder' => __( 'Type your title here', 'savior-elements' ),
+                    'default' => __( 'On Sale!', 'savior-elementor-addon' ),
+                    'placeholder' => __( 'Type your title here', 'savior-elementor-addon' ),
                     'condition' => [
                         'show_top_badge' => 'yes'
                     ]
@@ -168,7 +168,7 @@ class WPSE_Preview_Card_Widget extends Widget_Base {
             $this->add_control(
                 'show_middle_badge',
                 [
-                    'label' => __( 'Show Middle Badge', 'savior-elements' ),
+                    'label' => __( 'Show Middle Badge', 'savior-elementor-addon' ),
                     'type' => \Elementor\Controls_Manager::SWITCHER,
                     'label_on' => __( 'Show', 'your-plugin' ),
                     'label_off' => __( 'Hide', 'your-plugin' ),
@@ -181,10 +181,10 @@ class WPSE_Preview_Card_Widget extends Widget_Base {
             $this->add_control(
                 'middle_badge_text',
                 [
-                    'label' => __( 'Middle Badge Text', 'savior-elements' ),
+                    'label' => __( 'Middle Badge Text', 'savior-elementor-addon' ),
                     'type' => \Elementor\Controls_Manager::TEXT,
-                    'default' => __( '$19.99', 'savior-elements' ),
-                    'placeholder' => __( 'Type your title here', 'savior-elements' ),
+                    'default' => __( '$19.99', 'savior-elementor-addon' ),
+                    'placeholder' => __( 'Type your title here', 'savior-elementor-addon' ),
                     'condition' => [
                         'show_middle_badge' => 'yes'
                     ]
@@ -195,7 +195,7 @@ class WPSE_Preview_Card_Widget extends Widget_Base {
             $this->add_control(
                 'show_bottom_badge',
                 [
-                    'label' => __( 'Show Bottom Badge', 'savior-elements' ),
+                    'label' => __( 'Show Bottom Badge', 'savior-elementor-addon' ),
                     'type' => \Elementor\Controls_Manager::SWITCHER,
                     'label_on' => __( 'Show', 'your-plugin' ),
                     'label_off' => __( 'Hide', 'your-plugin' ),
@@ -208,10 +208,10 @@ class WPSE_Preview_Card_Widget extends Widget_Base {
             $this->add_control(
                 'bottom_badge_text',
                 [
-                    'label' => __( 'Bottom Badge Text', 'savior-elements' ),
+                    'label' => __( 'Bottom Badge Text', 'savior-elementor-addon' ),
                     'type' => \Elementor\Controls_Manager::TEXT,
-                    'default' => __( '$19.99', 'savior-elements' ),
-                    'placeholder' => __( 'Type your title here', 'savior-elements' ),
+                    'default' => __( '$19.99', 'savior-elementor-addon' ),
+                    'placeholder' => __( 'Type your title here', 'savior-elementor-addon' ),
                     'condition' => [
                         'show_bottom_badge' => 'yes'
                     ]
@@ -233,9 +233,9 @@ class WPSE_Preview_Card_Widget extends Widget_Base {
             $this->add_control(
                 'button_link',
                 [
-                    'label' => __( 'Link', 'savior-elements' ),
+                    'label' => __( 'Link', 'savior-elementor-addon' ),
                     'type' => \Elementor\Controls_Manager::URL,
-                    'placeholder' => __( 'https://your-link.com', 'savior-elements' ),
+                    'placeholder' => __( 'https://your-link.com', 'savior-elementor-addon' ),
                     'show_external' => true,
                     'default' => [
                         'url' => '',
@@ -249,10 +249,10 @@ class WPSE_Preview_Card_Widget extends Widget_Base {
             $this->add_control(
                 'button_text',
                 [
-                    'label' => __( 'Text', 'savior-elements' ),
+                    'label' => __( 'Text', 'savior-elementor-addon' ),
                     'type' => \Elementor\Controls_Manager::TEXT,
-                    'default' => __( 'Buy Now', 'savior-elements' ),
-                    'placeholder' => __( 'Type your text here', 'savior-elements' ),
+                    'default' => __( 'Buy Now', 'savior-elementor-addon' ),
+                    'placeholder' => __( 'Type your text here', 'savior-elementor-addon' ),
                 ]
             );
 
@@ -277,7 +277,7 @@ class WPSE_Preview_Card_Widget extends Widget_Base {
             $this->add_responsive_control(
                 'image_width',
                 [
-                    'label' => __( 'Width', 'savior-elements' ),
+                    'label' => __( 'Width', 'savior-elementor-addon' ),
                     'type' => Controls_Manager::SLIDER,
                     'size_units' => [ 'px', '%' ],
                     'description' => 'Desfault: 100%',
@@ -306,7 +306,7 @@ class WPSE_Preview_Card_Widget extends Widget_Base {
             $this->add_responsive_control(
                 'image_height',
                 [
-                    'label' => __( 'Height', 'savior-elements' ),
+                    'label' => __( 'Height', 'savior-elementor-addon' ),
                     'type' => Controls_Manager::SLIDER,
                     'size_units' => [ 'px', '%' ],
                     'description' => 'Desfault: 230px',
@@ -335,7 +335,7 @@ class WPSE_Preview_Card_Widget extends Widget_Base {
             $this->add_responsive_control(
                 'image_padding',
                 [
-                    'label' => __( 'Padding', 'savior-elements' ),
+                    'label' => __( 'Padding', 'savior-elementor-addon' ),
                     'type' => Controls_Manager::DIMENSIONS,
                     'size_units' => [ 'px', '%', 'em' ],
                     'default' => [
@@ -355,7 +355,7 @@ class WPSE_Preview_Card_Widget extends Widget_Base {
                 \Elementor\Group_Control_Border::get_type(),
                 [
                     'name' => 'image_border',
-                    'label' => __( 'Border', 'savior-elements' ),
+                    'label' => __( 'Border', 'savior-elementor-addon' ),
                     'selector' => '{{WRAPPER}} .image-card .image-wrapper',
                 ]
             );
@@ -364,7 +364,7 @@ class WPSE_Preview_Card_Widget extends Widget_Base {
             $this->add_responsive_control(
                 'image_border_radius',
                 [
-                    'label' => __( 'Border Radius', 'savior-elements' ),
+                    'label' => __( 'Border Radius', 'savior-elementor-addon' ),
                     'type' => Controls_Manager::DIMENSIONS,
                     'size_units' => [ 'px', '%', 'em' ],
                     'default' => [
@@ -385,7 +385,7 @@ class WPSE_Preview_Card_Widget extends Widget_Base {
                 \Elementor\Group_Control_Box_Shadow::get_type(),
                 [
                     'name' => 'image_box_shadow',
-                    'label' => __( 'Box Shadow', 'savior-elements' ),
+                    'label' => __( 'Box Shadow', 'savior-elementor-addon' ),
                     'selector' => '{{WRAPPER}} .image-card .image-wrapper .image',
                 ]
             );
@@ -407,7 +407,7 @@ class WPSE_Preview_Card_Widget extends Widget_Base {
             $this->add_responsive_control(
                 'content_padding',
                 [
-                    'label' => __( 'Padding', 'savior-elements' ),
+                    'label' => __( 'Padding', 'savior-elementor-addon' ),
                     'type' => Controls_Manager::DIMENSIONS,
                     'size_units' => [ 'px', '%', 'em' ],
                     'default' => [
@@ -437,7 +437,7 @@ class WPSE_Preview_Card_Widget extends Widget_Base {
             $this->add_responsive_control(
                 'content_title_bottom_spacing',
                 [
-                    'label' => __( 'Bottom Spacing', 'savior-elements' ),
+                    'label' => __( 'Bottom Spacing', 'savior-elementor-addon' ),
                     'type' => Controls_Manager::SLIDER,
                     'size_units' => [ 'px', '%' ],
                     'description' => 'Default: 15px',
@@ -466,7 +466,7 @@ class WPSE_Preview_Card_Widget extends Widget_Base {
             $this->add_control(
                 'content_title_color',
                 [
-                    'label' => __( 'Title Color', 'savior-elements' ),
+                    'label' => __( 'Title Color', 'savior-elementor-addon' ),
                     'type' => \Elementor\Controls_Manager::COLOR,
                     'selectors' => [
                         '{{WRAPPER}} .image-card .title h2' => 'color: {{VALUE}}',
@@ -480,7 +480,7 @@ class WPSE_Preview_Card_Widget extends Widget_Base {
                 \Elementor\Group_Control_Typography::get_type(),
                 [
                     'name' => 'content_title_typography',
-                    'label' => __( 'Typography', 'savior-elements' ),
+                    'label' => __( 'Typography', 'savior-elementor-addon' ),
                     'selector' => '{{WRAPPER}} .image-card .title h2',
                 ]
             );
@@ -499,7 +499,7 @@ class WPSE_Preview_Card_Widget extends Widget_Base {
             $this->add_responsive_control(
                 'content_description_bottom_spacing',
                 [
-                    'label' => __( 'Bottom Spacing', 'savior-elements' ),
+                    'label' => __( 'Bottom Spacing', 'savior-elementor-addon' ),
                     'type' => Controls_Manager::SLIDER,
                     'size_units' => [ 'px', '%' ],
                     'description' => 'Default: 30px',
@@ -528,7 +528,7 @@ class WPSE_Preview_Card_Widget extends Widget_Base {
             $this->add_control(
                 'content_description_color',
                 [
-                    'label' => __( 'Description Color', 'savior-elements' ),
+                    'label' => __( 'Description Color', 'savior-elementor-addon' ),
                     'type' => \Elementor\Controls_Manager::COLOR,
                     'selectors' => [
                         '{{WRAPPER}} .image-card .excerpt' => 'color: {{VALUE}}',
@@ -542,7 +542,7 @@ class WPSE_Preview_Card_Widget extends Widget_Base {
                 \Elementor\Group_Control_Typography::get_type(),
                 [
                     'name' => 'content_description_typography',
-                    'label' => __( 'Typography', 'savior-elements' ),
+                    'label' => __( 'Typography', 'savior-elementor-addon' ),
                     'selector' => '{{WRAPPER}} .image-card .excerpt',
                 ]
             );
@@ -565,7 +565,7 @@ class WPSE_Preview_Card_Widget extends Widget_Base {
             $this->add_control(
                 'divider_width',
                 [
-                    'label' => __( 'Width', 'savior-elements' ),
+                    'label' => __( 'Width', 'savior-elementor-addon' ),
                     'type' => Controls_Manager::SLIDER,
                     'size_units' => [ 'px', '%' ],
                     'description' => 'Default: 100px',
@@ -594,7 +594,7 @@ class WPSE_Preview_Card_Widget extends Widget_Base {
             $this->add_control(
                 'divider_height',
                 [
-                    'label' => __( 'Height', 'savior-elements' ),
+                    'label' => __( 'Height', 'savior-elementor-addon' ),
                     'type' => Controls_Manager::SLIDER,
                     'size_units' => [ 'px', '%' ],
                     'description' => 'Default: 2px',
@@ -623,7 +623,7 @@ class WPSE_Preview_Card_Widget extends Widget_Base {
             $this->add_control(
                 'divider_backgorund_color',
                 [
-                    'label' => __( 'Background Color', 'savior-elements' ),
+                    'label' => __( 'Background Color', 'savior-elementor-addon' ),
                     'type' => \Elementor\Controls_Manager::COLOR,
                     'default' => 'rgba( 0,0,0,0.05 )',
                     'selectors' => [
@@ -649,7 +649,7 @@ class WPSE_Preview_Card_Widget extends Widget_Base {
             $this->add_control(
                 'top_badge_backgorund_color',
                 [
-                    'label' => __( 'Background Color', 'savior-elements' ),
+                    'label' => __( 'Background Color', 'savior-elementor-addon' ),
                     'type' => \Elementor\Controls_Manager::COLOR,
                     'default' => '#562dd4',
                     'selectors' => [
@@ -662,7 +662,7 @@ class WPSE_Preview_Card_Widget extends Widget_Base {
             $this->add_control(
                 'top_badge_text_color',
                 [
-                    'label' => __( 'Text Color', 'savior-elements' ),
+                    'label' => __( 'Text Color', 'savior-elementor-addon' ),
                     'type' => \Elementor\Controls_Manager::COLOR,
                     'default' => '#fff',
                     'selectors' => [
@@ -676,7 +676,7 @@ class WPSE_Preview_Card_Widget extends Widget_Base {
                 \Elementor\Group_Control_Typography::get_type(),
                 [
                     'name' => 'top_badge_typography',
-                    'label' => __( 'Typography', 'savior-elements' ),
+                    'label' => __( 'Typography', 'savior-elementor-addon' ),
                     'selector' => '{{WRAPPER}} .image-card .image .top-price-badge',
                 ]
             );
@@ -709,7 +709,7 @@ class WPSE_Preview_Card_Widget extends Widget_Base {
                     $this->add_control(
                         'but_button_normal_bg_color',
                         [
-                            'label' => __( 'Background Color', 'savior-elements' ),
+                            'label' => __( 'Background Color', 'savior-elementor-addon' ),
                             'type' => \Elementor\Controls_Manager::COLOR,
                             'default' => '#562dd4',
                             'selectors' => [
@@ -721,7 +721,7 @@ class WPSE_Preview_Card_Widget extends Widget_Base {
                     $this->add_control(
                         'but_button_normal_text_color',
                         [
-                            'label' => __( 'Text Color', 'savior-elements' ),
+                            'label' => __( 'Text Color', 'savior-elementor-addon' ),
                             'type' => \Elementor\Controls_Manager::COLOR,
                             'default' => '#fff',
                             'selectors' => [
@@ -742,7 +742,7 @@ class WPSE_Preview_Card_Widget extends Widget_Base {
                     $this->add_control(
                         'but_button_hover_bg_color',
                         [
-                            'label' => __( 'Background Color', 'savior-elements' ),
+                            'label' => __( 'Background Color', 'savior-elementor-addon' ),
                             'type' => \Elementor\Controls_Manager::COLOR,
                             'default' => '#707070',
                             'selectors' => [
@@ -754,7 +754,7 @@ class WPSE_Preview_Card_Widget extends Widget_Base {
                     $this->add_control(
                         'but_button_hover_text_color',
                         [
-                            'label' => __( 'Text Color', 'savior-elements' ),
+                            'label' => __( 'Text Color', 'savior-elementor-addon' ),
                             'type' => \Elementor\Controls_Manager::COLOR,
                             'default' => '#fff',
                             'selectors' => [
@@ -771,7 +771,7 @@ class WPSE_Preview_Card_Widget extends Widget_Base {
                 \Elementor\Group_Control_Typography::get_type(),
                 [
                     'name' => 'buy_button_typography',
-                    'label' => __( 'Typography', 'savior-elements' ),
+                    'label' => __( 'Typography', 'savior-elementor-addon' ),
                     'selector' => '{{WRAPPER}} .image-card .readmore a.button-readmore',
                 ]
             );
@@ -879,4 +879,4 @@ class WPSE_Preview_Card_Widget extends Widget_Base {
     }
 
 }
-Plugin::instance()->widgets_manager->register_widget_type( new WPSE_Preview_Card_Widget() );
+Plugin::instance()->widgets_manager->register_widget_type( new SEA_Preview_Card_Widget() );
